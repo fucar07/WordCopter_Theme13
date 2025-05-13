@@ -1298,8 +1298,11 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "Sistem",
 		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpInstVar();
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const n2 = p._GetNode(2);
+			const n3 = p._GetNode(3);
+			return () => ((((f0(n1.ExpInstVar())) !== (0) ? 1 : 0)) ? (n2.ExpInstVar()) : (n3.ExpInstVar()));
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -1312,6 +1315,13 @@ self.C3_ExpressionFuncs = [
 		() => -300,
 		() => 5,
 		() => 0.5,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const f2 = p._GetNode(2).GetBoundMethod();
+			const n3 = p._GetNode(3);
+			return () => ((((f0(n1.ExpObject())) !== (0) ? 1 : 0)) ? (f2(n3.ExpObject())) : ((-1)));
+		},
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
@@ -1348,6 +1358,11 @@ self.C3_ExpressionFuncs = [
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(0, 1);
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0(n1.ExpObject());
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
